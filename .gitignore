@@ -118,3 +118,8 @@ fastchat/llm_judge/data/japanese_mt_bench
 
 # vllm
 *.pid
+
+# Credentials
+.env
+credentials.json
+token.json

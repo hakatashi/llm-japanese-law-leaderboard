@@ -1,6 +1,6 @@
 wandb:
-  entity: "wandb-japan"
-  project: "llm-leaderboard3"
+  entity: "tsg"
+  project: "llm-japanese-law-leaderboard"
   #run: please set up run name in a model-base config
 
 github_version: v3.0.0 #for recording
@@ -10,13 +10,13 @@ inference_interval: 0 # seconds
 
 run:
   jaster: true
-  jmmlu_robustness: true # if this is set as true, jaster should set as true
-  mtbench: true
-  jbbq: true
-  lctg: true
-  toxicity: true
-  jtruthfulqa: true
-  aggregate: true
+  jmmlu_robustness: false # if this is set as true, jaster should set as true
+  mtbench: false
+  jbbq: false
+  lctg: false
+  toxicity: false
+  jtruthfulqa: false
+  aggregate: false
 
 model:
   artifact_path: null
@@ -37,7 +37,7 @@ num_few_shots: 2
 
 jaster:
   message_intro: "以下に、あるタスクを説明する指示があり、それに付随する入力が更なる文脈を提供しています。リクエストを適切に完了するための回答を記述してください。"
-  artifacts_path: "wandb-japan/llm-leaderboard3/jaster:v6"
+  artifacts_path: "tsg/llm-japanese-law-leaderboard/jaster:v0"
   dataset_dir: "jaster"
 
 lctg:

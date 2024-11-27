@@ -27,7 +27,7 @@ def evaluate():
         ).reset_index()
 
         leaderboard_table.drop(columns=["model_name"], inplace=True)
-        leaderboard_table.insert(0, 'AVG', leaderboard_table.iloc[:, 2:].mean(axis=1))
+        leaderboard_table.insert(0, 'AVG', leaderboard_table.mean(axis=1))
         leaderboard_table.insert(0, 'model_name', cfg.model.pretrained_model_name_or_path)
     
         run.log(

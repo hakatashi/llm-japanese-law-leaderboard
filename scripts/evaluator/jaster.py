@@ -39,38 +39,8 @@ def evaluate_n_shot(few_shots: bool):
         raise FileNotFoundError(f"dataset_dir not found: {dataset_dir}")
 
     tasks = [
-        "aio",
-        "alt-e-to-j",
-        "alt-j-to-e",
-        "chabsa",
-        "commonsensemoralja",
-        "jamp",
-        "janli",
-        "jblimp",
-        "jcola-in-domain",
-        "jcola-out-of-domain",
-        "jcommonsenseqa",
-        "jemhopqa",
-        "jnli",
-        "jsem",
-        "jsick",
-        "jsquad",
-        #"jsts",
-        "kuci",
-        "mawps",
-        #"mbpp",
-        "mgsm",
-        "niilc",
-        "wiki_coreference",
-        "wiki_dependency",
-        "wiki_ner",
-        "wiki_pas",
-        "wiki_reading",
-        "wikicorpus-e-to-j",
-        "wikicorpus-j-to-e"
+        "jplaw",
     ]
-    tasks.extend(sorted({p.stem for p in dataset_dir.glob("**/mmlu_en_*.json")}))
-    tasks.extend(sorted({p.stem for p in dataset_dir.glob("**/jmmlu*.json") if not p.stem.endswith("Choice")}))
 
     if few_shots:
         num_few_shots = cfg.get("num_few_shots", None)
@@ -112,6 +82,9 @@ def evaluate_n_shot(few_shots: bool):
             elif "mmlu" in task:
                 test_max_num_samples = 5
                 val_max_num_samples = 1
+            elif task == "jplaw":
+                test_max_num_samples = 500
+                val_max_num_samples = 10
             else:
                 test_max_num_samples = 100
                 val_max_num_samples = 10
@@ -262,7 +235,7 @@ def evaluate_n_shot(few_shots: bool):
     ).reset_index()
 
     #leaderboard_table['AVG'] = leaderboard_table.iloc[:, 2:].mean(axis=1) # calculate later in jaster_translation.py
-    leaderboard_table_control.insert(0, 'AVG', leaderboard_table_control.iloc[:, 2:].mean(axis=1))
+    leaderboard_table_control.insert(0, 'AVG', leaderboard_table_control.iloc[:, 1:].mean(axis=1))
     leaderboard_table_control.drop(columns=["model_name"], inplace=True)
     leaderboard_table_control.insert(0, 'model_name', cfg.model.pretrained_model_name_or_path)
     

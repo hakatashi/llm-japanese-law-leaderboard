@@ -278,6 +278,7 @@ controllability_dict = {
     "jcommonsenseqa": is_0_4,
     "jemhopqa": no_check,
     "jnli": is_entailment3_format,
+    "jplaw": is_0_1,
     "jsem": is_jsem_format,
     "jsick": is_entailment3_format,
     "jsquad": no_check,
