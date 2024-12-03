@@ -5,7 +5,7 @@ from scipy.stats import pearsonr, spearmanr
 from sacrebleu import BLEU
 #import bert_score
 import shutil
-from comet import download_model, load_from_checkpoint
+#from comet import download_model, load_from_checkpoint
 
 # ---------------------
 # For jaster
@@ -102,6 +102,7 @@ def comet_wmt22(): #this is fake func
     pass
 
 def commet_score(commet_srcs, commet_mt, commet_ref):
+    """
     print("--------downloading comet model to evaluate translation task--------")
     comet_model_path = download_model("Unbabel/wmt22-comet-da")
     comet_model = load_from_checkpoint(comet_model_path)
@@ -115,6 +116,7 @@ def commet_score(commet_srcs, commet_mt, commet_ref):
     scores = comet_model.predict(comet_data, batch_size=8, gpus=1, progress_bar=False).scores
     #delete_model_directory(comet_model_path)
     return scores
+    """
     
 def delete_model_directory(directory):
     """Deletes the specified directory."""
