@@ -5,8 +5,10 @@ wandb:
 
 github_version: v3.0.0 #for recording
 
-testmode: false
+testmode: true
 inference_interval: 0 # seconds
+
+download_dir: /mnt/f/Caches/huggingface/hub
 
 run:
   jaster: true
@@ -38,6 +40,7 @@ num_few_shots: 2
 jaster:
   message_intro: "以下に、あるタスクを説明する指示があり、それに付随する入力が更なる文脈を提供しています。リクエストを適切に完了するための回答を記述してください。"
   artifacts_path: "tsg/llm-japanese-law-leaderboard/jaster:v0"
+  # artifacts_path: "wandb-japan/llm-leaderboard3/jaster:v6"
   dataset_dir: "jaster"
 
 lctg:

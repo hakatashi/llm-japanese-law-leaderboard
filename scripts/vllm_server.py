@@ -58,6 +58,7 @@ def start_vllm_server():
                 "--quantization", str(cfg.get("quantization", None)),
                 "--revision", str(cfg.get("revision", 'main')),
                 "--gpu-memory-utilization", str(cfg.get("gpu_memory_utilization", 0.9)),
+                *(["--download-dir", str(cfg.download_dir)] if cfg.download_dir is not None else []),
             ]
             if cfg.model.trust_remote_code:
                 command.append("--trust-remote-code")
