@@ -7,6 +7,7 @@ github_version: v3.0.0 #for recording
 
 testmode: true
 inference_interval: 0 # seconds
+num_gpus: 1
 
 download_dir: /mnt/f/Caches/huggingface/hub
 

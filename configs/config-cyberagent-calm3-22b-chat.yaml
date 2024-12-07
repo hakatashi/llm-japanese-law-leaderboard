@@ -1,5 +1,5 @@
 wandb:
-  run_name: "stockmark/stockmark-13b-instruct" # use run_name defined above
+  run_name: "cyberagent/calm3-22b-chat" # use run_name defined above
 
 # if you don't use api, please set "api" as "false"
 # if you use api, please select from "openai", "anthoropic", "google", "cohere", "vllm"
@@ -8,7 +8,9 @@ batch_size: 256 # vllmは256, apiは32を推奨
 
 model:
   use_wandb_artifacts: false
-  pretrained_model_name_or_path: "stockmark/stockmark-13b-instruct" #if you use openai api, put the name of model
-  chat_template: "stockmark/stockmark-13b-instruct"
+  pretrained_model_name_or_path: "cyberagent/calm3-22b-chat" #if you use openai api, put the name of model
+  chat_template: "cyberagent/calm3-22b-chat"
   size_category: "10B≤ <30B"
-  release_date: "11/10/2023"
+  size: null
+  release_date: "5/17/2023"
+

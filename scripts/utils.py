@@ -97,6 +97,9 @@ def get_tokenizer_config(model_id=None, chat_template_name=None) -> dict[str, An
             repo_id=chat_template_name, filename="tokenizer_config.json"
         ).get("chat_template")
 
+        if isinstance(chat_template, list):
+            chat_template = chat_template[0].get("template")
+
     # add chat_template to tokenizer_config
     tokenizer_config.update({"chat_template": chat_template})
 
